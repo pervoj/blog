@@ -1,0 +1,68 @@
+<style type="text/css" media="screen">
+	#menu {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+
+		position: sticky;
+		top: 0;
+
+		padding: 0.8rem;
+
+		background-color: #222831;
+		box-shadow: 0 0 1rem #000000bb;
+	}
+
+	#menu .title {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	#menu a {
+		text-decoration: none;
+		color: #eeeeee;
+	}
+
+	#menu a.logo { font-size: 2rem; }
+	#menu a.logo span:first-child { color: #00adb5; }
+
+	#menu a.link {
+		font-size: 1.2rem;
+		opacity: 0.8;
+		transition: opacity 0.2s ease-out;
+	}
+	#menu a.link:hover { opacity: 1; }
+
+	@media only screen and (max-width: 420px) {
+		#menu a.link span { display: none; }
+	}
+</style>
+
+<nav id="menu">
+	<div class="title">
+		<a href="/" class="logo"><span>per</span><span>voj</span></a>
+		<a href="/" class="link">
+			<i class="fas fa-home"></i>
+			<span>
+				{% if page.lang == "cs" %}
+					Domů
+				{% else %}
+					Home
+				{% endif %}
+			</span>
+		</a>
+	</div>
+	<a href="https://pervoj.cz/" class="link">
+		<i class="fas fa-level-up-alt"></i>
+		<span>
+			{% if page.lang == "cs" %}
+				Zpět na web…
+			{% else %}
+				Back to website…
+			{% endif %}
+		</span>
+	</a>
+</nav>

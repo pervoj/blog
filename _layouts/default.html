@@ -1,0 +1,119 @@
+{% assign lang = page.lang | default: "en" %}
+
+<!DOCTYPE html>
+<html lang='{{ lang }}'>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/assets/images/icon.svg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="/assets/styles/highlight.css">
+
+	<style type="text/css" media="screen">
+		@font-face {
+			font-family: 'Helmet Neue';
+			src: url('/assets/fonts/HelmetNeue-Regular.ttf');
+		}
+
+		body {
+			margin: 0;
+			font-family: 'Helmet Neue';
+		}
+
+		* { box-sizing: border-box; }
+
+		#container {
+			margin: 1.5rem auto;
+			padding-inline: 1.5rem;
+			max-width: 900px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		// functions
+		// =========
+
+		// checks if the file in the arg exists
+		function doesFileExist(urlToFile) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('HEAD', urlToFile, false);
+			xhr.send();
+			return xhr.status !== 404;
+		}
+
+		// gets the name of the current html file
+		function currentHTMLFileName() {
+			let fileName = window.location.pathname;
+			fileName = fileName.split('/').pop();
+
+			if (!fileName) return 'index.html';
+
+			if (!doesFileExist(fileName)) return '404.html';
+
+			if (!fileName.endsWith('.html')) fileName += '.html';
+			return fileName;
+		}
+	</script>
+
+	<script type="text/javascript">
+		/*
+			this script contains automatic redirection
+			to the localized version of current page
+		*/
+
+		// gets current browser language and saves it in the variable
+		let language = navigator.language || navigator.userLanguage;
+		language = language.split('-')[0];
+
+		// get current html file name and split it to the array by dots
+		let fileNameArr = currentHTMLFileName();
+		fileNameArr = fileNameArr.split('.');
+
+		// get the penultimate element of the file name from the array
+		let langInFileName = fileNameArr[fileNameArr.length - 2];
+
+		// if browser language is Czech, but current file is not in Czech
+		if (language === 'cs' && langInFileName !== 'cs') {
+			// add Czech to the file name
+			fileNameArr.splice(fileNameArr.length - 1, 0, 'cs');
+			// convert the file name back to string
+			const fileName = fileNameArr.join('.');
+			// check if the file exists
+			if (doesFileExist(fileName)) {
+				// redirect to the Czech file
+				window.location.href = fileName;
+			}
+		// if browser language is not Czech, but current file is in Czech
+		} else if (language !== 'cs' && langInFileName === 'cs') {
+			// remove Czech from the file name
+			fileNameArr.splice(fileNameArr.length - 2, 1);
+			// convert the file name back to string
+			const fileName = fileNameArr.join('.');
+			console.log(fileName);
+			// check if the file exists
+			if (doesFileExist(fileName)) {
+				// redirect to the English file
+				window.location.href = fileName;
+			}
+		}
+	</script>
+
+	<title>
+		{% if page.title %}
+			{{ page.title }} – pervoj
+		{% else %}
+			pervoj
+		{% endif %}
+	</title>
+</head>
+<body>
+	<!-- include menubar -->
+	{% include menu.html %}
+
+	<!-- include page content -->
+	<article id="container">
+		{{ content }}
+	</article>
+</body>
+</html>
