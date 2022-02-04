@@ -4,7 +4,7 @@ lang: "en"
 date: 2022-02-04 14:01:39 +0100
 title: "Blog was started!"
 excerpt: "Why I created this blog and how it works."
-image: "2022-02-04-blog-was-started.svg"
+image: "tada.svg"
 ---
 
 Hello! My name is **Vojtěch Perník** and I am from the Czech Republic. When

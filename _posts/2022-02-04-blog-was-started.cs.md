@@ -4,7 +4,7 @@ lang: "cs"
 date: 2022-02-04 14:01:39 +0100
 title: "Blog byl spuštěn!"
 excerpt: "Proč jsem tento blog vytvořil a jak vlastně funguje."
-image: "2022-02-04-blog-was-started.svg"
+image: "tada.svg"
 ---
 
 Ahoj! Jmenuji se **Vojtěch Perník** a pocházím z Českých Budějovic. Když jsem
