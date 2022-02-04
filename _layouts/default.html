@@ -55,6 +55,17 @@
 			if (!fileName.endsWith('.html')) fileName += '.html';
 			return fileName;
 		}
+
+		// return get parameter
+		function getParameter(key) {
+			// address of the current window
+			address = window.location.search
+			// returns an URLSearchParams object instance
+			parameterList = new URLSearchParams(address)
+			// returning the respected value associated
+			// with the provided key
+			return parameterList.get(key)
+		}
 	</script>
 
 	<script type="text/javascript">
@@ -63,40 +74,52 @@
 			to the localized version of current page
 		*/
 
-		// gets current browser language and saves it in the variable
-		let language = navigator.language || navigator.userLanguage;
-		language = language.split('-')[0];
+		if (getParameter('keeplang') !== null) {
+			if (getParameter('keeplang') === '1')
+				sessionStorage.setItem('keeplang', 1);
 
-		// get current html file name and split it to the array by dots
-		let fileNameArr = currentHTMLFileName();
-		fileNameArr = fileNameArr.split('.');
+			if (getParameter('keeplang') === '0')
+				sessionStorage.removeItem('keeplang');
+		}
 
-		// get the penultimate element of the file name from the array
-		let langInFileName = fileNameArr[fileNameArr.length - 2];
+		// if the redirecting is not disabled
+		if (!sessionStorage.getItem('keeplang')) {
+			// gets current browser language and saves it in the variable
+			let language = navigator.language || navigator.userLanguage;
+			language = language.split('-')[0];
 
-		// if browser language is Czech, but current file is not in Czech
-		if (language === 'cs' && langInFileName !== 'cs') {
-			// add Czech to the file name
-			fileNameArr.splice(fileNameArr.length - 1, 0, 'cs');
-			// convert the file name back to string
-			const fileName = fileNameArr.join('.');
-			// check if the file exists
-			if (doesFileExist(fileName)) {
-				// redirect to the Czech file
-				window.location.href = fileName;
+			// get current html file name and split it to the array by dots
+			let fileNameArr = currentHTMLFileName();
+			fileNameArr = fileNameArr.split('.');
+
+			// get the penultimate element of the file name from the array
+			let langInFileName = fileNameArr[fileNameArr.length - 2];
+
+			// if browser language is Czech, but current file is not in Czech
+			if (language === 'cs' && langInFileName !== 'cs') {
+				// add Czech to the file name
+				fileNameArr.splice(fileNameArr.length - 1, 0, 'cs');
+				// convert the file name back to string
+				const fileName = fileNameArr.join('.');
+				// check if the file exists
+				if (doesFileExist(fileName)) {
+					// redirect to the Czech file
+					window.location.href = fileName;
+				}
+			// if browser language is not Czech, but current file is in Czech
+			} else if (language !== 'cs' && langInFileName === 'cs') {
+				// remove Czech from the file name
+				fileNameArr.splice(fileNameArr.length - 2, 1);
+				// convert the file name back to string
+				const fileName = fileNameArr.join('.');
+				console.log(fileName);
+				// check if the file exists
+				if (doesFileExist(fileName)) {
+					// redirect to the English file
+					window.location.href = fileName;
+				}
 			}
-		// if browser language is not Czech, but current file is in Czech
-		} else if (language !== 'cs' && langInFileName === 'cs') {
-			// remove Czech from the file name
-			fileNameArr.splice(fileNameArr.length - 2, 1);
-			// convert the file name back to string
-			const fileName = fileNameArr.join('.');
-			console.log(fileName);
-			// check if the file exists
-			if (doesFileExist(fileName)) {
-				// redirect to the English file
-				window.location.href = fileName;
-			}
+
 		}
 	</script>
 
