@@ -1,25 +1,17 @@
-/* ############
-   # headings #
-   ############ */
+/* ###########
+   # general #
+   ########### */
 
 h1 { font-size: 1.8rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.2rem; }
 h4 { font-size: 1rem; }
 
+a { text-decoration: none; }
+a:hover, a:active { text-decoration: underline; }
+a:not(:visited) { color: #0047b3; }
 
-/* #########
-   # image #
-   ######### */
-
-img {
-	max-width: 100%;
-}
-
-
-/* ###################
-   # horizontal rule #
-   ################### */
+img { max-width: 100%; }
 
 hr {
 	height: 2px;
@@ -28,11 +20,6 @@ hr {
 	background-color: #c6cbd1;
 	border: 0;
 }
-
-
-/* ###################
-   # definition list #
-   ################### */
 
 dl dt { font-weight: bold; }
 
