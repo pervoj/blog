@@ -7,18 +7,13 @@ excerpt: "Proč jsem tento blog vytvořil a jak vlastně funguje."
 image: "tada.svg"
 ---
 
-Ahoj! Jmenuji se **Vojtěch Perník** a pocházím z Českých Budějovic. Když jsem
-psal tento tento článek, bylo mi 15 let. Rád používám přezdívku **pervoj**.
+Ahoj! Jmenuji se **Vojtěch Perník** a pocházím z Českých Budějovic. Když jsem psal tento tento článek, bylo mi 15 let. Rád používám přezdívku **pervoj**.
 
-Ale tohle všechno si můžete přečíst na domovské stránce webu. Takže nyní něco
-k blogu.
+Ale tohle všechno si můžete přečíst na domovské stránce webu. Takže nyní něco k blogu.
 
-Tento blog jsem se rozhodl vytvořit, abych mohl psát o tom, co se děje v mých
-projektech, a taky prostě o věcech, o kterých si myslím, že stojí za to psát.
+Tento blog jsem se rozhodl vytvořit, abych mohl psát o tom, co se děje v mých projektech, a taky prostě o věcech, o kterých si myslím, že stojí za to psát.
 
-Celý blog je postavený na projektu [Jekyll](https://jekyllrb.com/) a používá
-mé vlastní téma. V nejbližší době se na Jekyllu chystám spustit také mojí
-vlastní wiki a předělat domovskou stránku.
+Celý blog je postavený na projektu [Jekyll](https://jekyllrb.com/) a používá mé vlastní téma. V nejbližší době se na Jekyllu chystám spustit také mojí vlastní wiki a předělat domovskou stránku.
 
 ---
 
