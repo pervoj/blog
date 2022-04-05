@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="/assets/images/icon.svg">
+	<link rel="icon" href="{{ site.root }}/assets/images/icon.svg">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="/assets/styles/highlight.css">
+	<link rel="stylesheet" href="{{ site.root }}/assets/styles/highlight.css">
 
 	<style type="text/css" media="screen">
 		@font-face {
 			font-family: 'Helmet Neue';
-			src: url('/assets/fonts/HelmetNeue-Regular.ttf');
+			src: url('{{ site.root }}/assets/fonts/HelmetNeue-Regular.ttf');
 		}
 
 		body {
@@ -47,6 +47,7 @@
 		// gets the name of the current html file
 		function currentHTMLFileName() {
 			let fileName = window.location.pathname;
+			fileName.replace('{{ site.root }}', '');
 			fileName = fileName.split('/').pop();
 
 			if (!fileName) return 'index.html';

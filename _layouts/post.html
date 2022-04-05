@@ -52,9 +52,9 @@ layout: default
 
 {% if page.title %}
 	{% if page.image %}
-		{% assign image = "/assets/images/posts/" | append: page.image %}
+		{% assign image = site.root | append: "/assets/images/posts/" | append: page.image %}
 	{% else %}
-		{% assign image = "/assets/images/post-default.svg" %}
+		{% assign image = site.root | append: "/assets/images/post-default.svg" %}
 	{% endif %}
 
 	<section id="title">

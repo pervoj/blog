@@ -97,16 +97,16 @@
 	{% for post in posts %}
 		<div>
 			{% if post.image %}
-				{% assign image = "/assets/images/posts/" | append: post.image %}
+				{% assign image = site.root | append: "/assets/images/posts/" | append: post.image %}
 			{% else %}
-				{% assign image = "/assets/images/post-default.svg" %}
+				{% assign image = site.root | append: "/assets/images/post-default.svg" %}
 			{% endif %}
 
 			<img src='{{ image }}'>
 			<h2>{{ post.title }}</h2>
 			<small>{{ post.date | date: dateformat }}</small>
 			<p>{{ post.excerpt }}</p>
-			<a href="{{ post.url }}"></a>
+			<a href="{{ site.root }}{{ post.url }}"></a>
 		</div>
 	{% endfor %}
 </section>
