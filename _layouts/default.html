@@ -7,30 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="{{ site.root }}/assets/images/icon.svg">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="{{ site.root }}/assets/styles/highlight.css">
-
-	<style type="text/css" media="screen">
-		@font-face {
-			font-family: 'Helmet Neue';
-			src: url('{{ site.root }}/assets/fonts/HelmetNeue-Regular.ttf');
-		}
-
-		body {
-			margin: 0;
-			font-family: 'Helmet Neue';
-			font-size: 1.1rem;
-			line-height: 1.4;
-		}
-
-		* { box-sizing: border-box; }
-
-		#container {
-			margin: 1.5rem auto;
-			padding-inline: 1.5rem;
-			max-width: 900px;
-		}
-	</style>
+	<link rel="stylesheet" href="https://pervoj.cz/nuclear/css/nuclear.css">
+	<script src="https://pervoj.cz/nuclear/js/nuclear.js" type="module" defer></script>
 
 	<script type="text/javascript">
 		// functions
@@ -134,11 +112,13 @@
 	</title>
 </head>
 <body>
+	<a class="skip-to-content" href="#main-container">Skip to content</a>
+
 	<!-- include menubar -->
 	{% include menu.html %}
 
 	<!-- include page content -->
-	<main id="container">
+	<main class="container" id="main-container">
 		{{ content }}
 	</main>
 </body>

@@ -3,11 +3,11 @@ layout: default
 ---
 
 <style type="text/css" media="screen">
-	#container {
+	.container {
 		text-align: justify;
 	}
 
-	#container #title {
+	.container #title {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -16,12 +16,12 @@ layout: default
 		text-align: center;
 	}
 
-	#container #title h1 {
+	.container #title h1 {
 		font-size: 2rem;
 		margin: 0;
 	}
 
-	#container #title img {
+	.container #title img {
 		aspect-ratio: 1;
 		width: 4rem;
 		object-fit: cover;
@@ -29,14 +29,14 @@ layout: default
 	}
 
 
-	@media only screen and (min-width: 800px) {
-		#container #title {
+	@media (min-width: 800px) {
+		.container #title {
 			display: grid;
 			grid-template-columns: auto 1fr;
 			text-align: justify;
 		}
 
-		#container #title img {
+		.container #title img {
 			grid-row: 1 / 3;
 		}
 	}
